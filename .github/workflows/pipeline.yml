@@ -1,4 +1,4 @@
-name: Linting workflow
+name: Deployment pipeline
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 
 jobs:
-  lint:
+  simple_deployment_pipeline:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
@@ -18,3 +18,7 @@ jobs:
         run: npm install
       - name: lint
         run: npm run eslint
+      - name: build
+        run: npm run build
+      - name: test
+        run: npm test
